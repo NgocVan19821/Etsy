@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginHorizontal="20dp"
+
+    tools:context=".feature.register.RegisterActivity">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Account"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/black"
+        android:layout_gravity="center"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fullName"
+        android:hint="Full Name"
+        android:textSize="25sp"
+        android:layout_marginVertical="20dp"
+        android:background="@drawable/bg_button_stroke_black20"
+        android:textColor="@color/grey"
+        android:padding="8dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/email"
+        android:textSize="25sp"
+        android:inputType="textEmailAddress"
+        android:hint="Email Address"
+        android:background="@drawable/bg_button_stroke_black20"
+        android:textColor="@color/grey"
+        android:padding="8dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:id="@+id/phone"
+        android:inputType="number"
+        android:hint="Phone Number"
+        android:layout_marginVertical="20dp"
+        android:background="@drawable/bg_button_stroke_black20"
+        android:textColor="@color/grey"
+        android:padding="8dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:id="@+id/password"
+        android:hint="Password"
+        android:background="@drawable/bg_button_stroke_black20"
+        android:textColor="@color/grey"
+        android:padding="8dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/confirm_password"
+        android:hint="Comfirm Password"
+        android:textSize="25sp"
+        android:layout_marginVertical="20dp"
+        android:background="@drawable/bg_button_stroke_black20"
+        android:textColor="@color/grey"
+        android:padding="8dp"/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_agree"
+        android:text="Agree with Term and Conditions"
+        android:textColor="@color/black"
+        android:layout_marginBottom="20dp"
+        android:textSize="20sp"/>
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FF5722"
+        android:hint="Create Account"
+        android:textSize="25sp"
+        android:background="@drawable/bg_button_stroke_black20"
+        android:textColor="@color/white"
+        android:padding="8dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+
+            android:text="Already have an account?"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginStart="10dp"/>
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>

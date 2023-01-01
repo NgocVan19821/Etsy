@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_marginStart="20dp"
+    android:id="@+id/item_color">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/nameColor"
+        android:text="Black"
+        android:textColor="@color/black"
+        android:textSize="15sp"/>
+
+    <RelativeLayout
+        android:id="@+id/colorChange"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/bg_circle"
+        android:backgroundTint="@color/black" />
+
+
+</RelativeLayout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/item_holiday_shirt"
+    android:layout_margin="20dp">
+
+    <ImageView
+        android:id="@+id/image_shirt"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/img_actor" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Halloween"
+        android:id="@+id/title"
+        android:layout_below="@+id/image_shirt"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+<!--    <ImageView-->
+<!--        android:layout_width="40dp"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:id="@+id/btn_favorites"-->
+<!--        android:padding="5dp"-->
+<!--        android:background="@drawable/bg_circle"-->
+<!--        android:src="@drawable/ic_favorite"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:layout_marginEnd="5dp"/>-->
+
+
+
+</RelativeLayout>

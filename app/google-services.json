@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "191885386860",
+    "firebase_url": "https://etsy-20f05-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "etsy-20f05",
+    "storage_bucket": "etsy-20f05.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191885386860:android:a064471f9fcb1470bd2449",
+        "android_client_info": {
+          "package_name": "com.example.etsy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "191885386860-0cvqeh269cjp2njbob0i8770js4piceh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZgEdUDNS1tjeWbK8udGwZ9IUyGKDt1I8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "191885386860-0cvqeh269cjp2njbob0i8770js4piceh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

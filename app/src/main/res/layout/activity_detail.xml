@@ -5,21 +5,219 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".feature.detail.DetailActivity">
-    <ImageView
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/img_halloween"
-        android:id="@+id/imgP"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/titleP"
-        android:layout_below="@+id/imgP"
-        android:text="Halloween"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        android:layout_centerHorizontal="true"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/imgP"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/img_halloween" />
+
+                    <ImageView
+                        android:id="@+id/btn_Fav"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:background="@drawable/bg_circle"
+                        android:padding="3dp"
+                        android:src="@drawable/ic_favorite" />
+
+
+
+                </RelativeLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/titleP"
+                    android:layout_below="@+id/imgP"
+                    android:text="Halloween"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    android:layout_centerHorizontal="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/defaultPrice"
+                    android:text="188.424"
+                    android:layout_marginVertical="20dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+
+                    android:layout_below="@+id/titleP"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/description"
+                    android:layout_marginVertical="20dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:textColor="@color/black"
+
+                    android:text="Hi what's your favorites? how are you to day"/>
+
+                <RelativeLayout
+                    android:id="@+id/buttonPickColor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/price"
+                    android:layout_marginHorizontal="20dp"
+                    android:background="@drawable/bg_button_stroke_black20">
+
+                    <TextView
+                        android:id="@+id/nameColorTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:padding="10dp"
+                        android:text="Color"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <RelativeLayout
+                        android:id="@+id/colorChange"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="30dp"
+                        android:background="@drawable/bg_circle" />
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/buttonPickColor"
+                    android:id="@+id/buttonPickSize"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:background="@drawable/bg_button_stroke_black20">
+
+                    <TextView
+                        android:id="@+id/sizeText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:padding="10dp"
+                        android:text="Size"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="10dp"
+                        android:padding="10dp"
+                        android:text="50.000"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+
+                </RelativeLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/click_button_quantity"
+                    android:orientation="horizontal"
+                    android:layout_below="@+id/buttonPickSize"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:layout_centerHorizontal="true"
+                    android:weightSum="3">
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/minus"
+                        android:background="@drawable/bg_button_stroke_black20"
+                        android:src="@drawable/ic_minus"
+                        android:padding="10dp"
+                        android:layout_weight="1"/>
+                    <TextView
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:id="@+id/quantity"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+
+                        android:layout_weight="1"/>
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/plus"
+                        android:background="@drawable/bg_button_stroke_black20"
+                        android:src="@drawable/ic_add"
+                        android:padding="10dp"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/click_button_quantity"
+                    android:layout_marginHorizontal="20dp"
+                    android:id="@+id/button_buy"
+                    android:layout_marginVertical="20dp"
+                    android:text="Buy it now"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+
+                    android:background="@drawable/bg_button_stroke_black20"
+                    android:backgroundTint="@color/black"/>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_below="@+id/button_buy"
+                    android:id="@+id/btn_addToCart"
+                    android:background="@drawable/bg_button_stroke_black20"
+                    android:text="Add to cart"
+                    android:textColor="@color/black"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    android:textSize="20sp"/>
+
+
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+
+
+
+
+
+
+
+
+
+
 
 </RelativeLayout>

@@ -38,7 +38,7 @@ class RegisterActivity : AppCompatActivity() {
 
         val fullname = fullName.text.toString()
         val email = email.text.toString()
-        val phone = phone.text.toString()
+        val     phone = phone.text.toString()
         val pass = password.text.toString()
 
         val register = Account(
@@ -49,6 +49,7 @@ class RegisterActivity : AppCompatActivity() {
             0.0,
             0.0
         )
+
         databaseAccount.child(phone).setValue(register)
             .addOnSuccessListener {
               //  Toast.makeText(this@RegisterActivity, "Sucessfully", Toast.LENGTH_SHORT).show()
@@ -144,7 +145,7 @@ class RegisterActivity : AppCompatActivity() {
             }else
                 toast("Nhap email sai")
         }else {
-            toast("Nhap sai ten")
+            toast("Use 6 to 20 characters")
         }
     }
 

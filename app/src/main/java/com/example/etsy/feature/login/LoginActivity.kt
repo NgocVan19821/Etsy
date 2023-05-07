@@ -40,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
                 database.child(phoneR.text.toString()).get().addOnSuccessListener {
                     if (it.exists()){
                         if(it.child("phone").value.toString() == (phoneR.text.toString()) && it.child("password").value.toString() == (passwordR.text.toString()) ){
-
+                            Application.dbPhone = it.child("phone").value.toString()
                             saveKey(phoneR.text.toString(), passwordR.text.toString())
                             val a = Intent(this@LoginActivity, MainActivity::class.java)
                             startActivity(a)

@@ -9,12 +9,16 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import com.example.etsy.R
 import com.example.etsy.feature.checkout.adapter.CheckoutAdapter
+import com.example.etsy.feature.main.fragment.cart.adapter.CartAdapter
 import com.example.etsy.feature.successful.SuccessfulActivity
+import com.example.etsy.model.Cart
 import com.example.etsy.ultities.Application
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_checkout.*
 
 class CheckoutActivity : AppCompatActivity() {
+    private lateinit var databaseCart: DatabaseReference
+    private val adapterCart by lazy { CheckoutAdapter(this, Application.cartList) }
 
     var totalCartPirce: Double = 0.0
 
@@ -23,8 +27,17 @@ class CheckoutActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_checkout)
+        databaseCart = FirebaseDatabase.getInstance().getReference("Cart/${Application.dbPhone}")
 
         calculator()
+        if (intent.getIntExtra("isBuyNow", 1111) == 0){
+            list_item_checkout.adapter = adapterCart
+
+        }else{
+            fetchData()
+
+        }
+
 
 //        for (i in Application.cartList){
 //            totalCartPirce += (i.price*i.quantity)
@@ -42,10 +55,6 @@ class CheckoutActivity : AppCompatActivity() {
 
     }
 
-    override fun onResume() {
-        super.onResume()
-        list_item_checkout.adapter = CheckoutAdapter(this@CheckoutActivity)
-    }
     private fun calculator(){
         for(i in Application.cartList){
             if (i.quantity != null && i.price != null){
@@ -123,6 +132,26 @@ class CheckoutActivity : AppCompatActivity() {
 
     }
 
+    private fun fetchData() { //lay data
+        databaseCart.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    Application.cartList.clear()
+
+                    for (productSnapshot in snapshot.children) {
+                        Log.d("yyy", "${snapshot.childrenCount}")
+                        val item = productSnapshot.getValue(Cart::class.java)
+                        Application.cartList.add(item!!)
+                    }
+                    list_item_checkout.adapter = adapterCart
+//                   information.sortByDescending { it.ho }
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+        })
+    }
 
 }
 

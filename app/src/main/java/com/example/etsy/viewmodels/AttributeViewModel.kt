@@ -10,4 +10,9 @@ class AttributeViewModel: ViewModel() {
 
     var size = MutableLiveData<String>()
     var price = MutableLiveData<Double>()
+
+    var nameBank = MutableLiveData<String>()
+    var imgBank = MutableLiveData<String>()
+
+
 }

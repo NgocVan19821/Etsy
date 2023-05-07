@@ -11,6 +11,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import com.example.etsy.R
+import com.example.etsy.feature.addmoney.AddMoneyActivity
+import com.example.etsy.feature.edit.EditAccountActivity
 import com.example.etsy.feature.login.LoginActivity
 import com.example.etsy.model.Color
 import com.example.etsy.ultities.Application
@@ -41,6 +43,14 @@ class PersonFragment : Fragment() {
     private fun eventListener(){
         logOut.setOnClickListener{
             showDialog()
+        }
+        btn_personal.setOnClickListener {
+            val i = Intent(requireActivity(), EditAccountActivity::class.java)
+            startActivity(i)
+        }
+        btn_addMoney.setOnClickListener {
+            val i = Intent(requireActivity(), AddMoneyActivity::class.java)
+            startActivity(i)
         }
     }
     private fun showDialog() {

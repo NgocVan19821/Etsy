@@ -1,5 +1,6 @@
 package com.example.etsy.feature.main.fragment.cart.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.ColorStateList
 import android.view.LayoutInflater
@@ -21,9 +22,9 @@ class CartAdapter(
     val listCart: ArrayList<Cart>
 
 ): RecyclerView.Adapter<CartAdapter.MyViewHolder>() {
-    interface CartAdapterListener{
-        fun deleteItem(id: String)
-    }
+//    interface CartAdapterListener{
+//        fun deleteItem(id: String)
+//    }
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
@@ -52,10 +53,12 @@ class CartAdapter(
 //            Application.cartList.remove(item)
 //            notifyDataSetChanged()
 //            listener.deleteItem(item.timeAddToCart.toString())
-            val databaseCart = FirebaseDatabase.getInstance().getReference("Cart/0905631375")
+            val databaseCart = FirebaseDatabase.getInstance().getReference("Cart/${Application.dbPhone}")
             databaseCart.child(item.timeAddToCart.toString()).removeValue()
-
-//            notifyDataSetChanged()
+            if (Application.cartList.size == 1){
+                Application.cartList.clear()
+            }
+            notifyDataSetChanged()
         }
 
     }

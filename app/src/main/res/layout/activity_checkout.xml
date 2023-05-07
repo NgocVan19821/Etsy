@@ -31,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:text="Địa chỉ đặt hàng:\nLê Công Tùng\nTrần Cao Vân\n090353237 " />
+                android:text="Enter Your Address"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/list_item_checkout"

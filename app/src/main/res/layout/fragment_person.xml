@@ -11,12 +11,37 @@
         android:layout_height="match_parent"
         android:text="user" />
     <TextView
-        android:id="@+id/logOut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Log out"
+        android:id="@+id/btn_personal"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:background="@drawable/bg_btn"
+        android:text="Personal Information"
+        android:textAlignment="center"
+        android:gravity="center"
         android:textColor="@color/black"
-        android:textSize="25sp"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/btn_addMoney"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:background="@drawable/bg_btn"
+        android:text="Add Money"
+        android:layout_marginVertical="20dp"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/logOut"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="Log out"
+        android:background="@drawable/bg_btn"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:padding="10dp"
         android:textStyle="bold"/>
 
 

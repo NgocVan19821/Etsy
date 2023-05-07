@@ -5,18 +5,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 import com.example.etsy.R
 import com.example.etsy.feature.main.fragment.home.adapter.ProductAdapter
 import com.example.etsy.model.*
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_example.*
+import kotlinx.android.synthetic.main.fragment_cart.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
 
     private lateinit var databaseProduct: DatabaseReference
     private var productDetail: ArrayList<ProductDetail> = arrayListOf()
-
+    val adapterHome by lazy { ProductAdapter(requireContext(), productDetail) }
+    val list by lazy { holiday_shirt }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,7 +57,7 @@ class HomeFragment : Fragment() {
                         productDetail.add(item!!)
                     }
 
-                    holiday_shirt.adapter = ProductAdapter(requireContext(), productDetail)
+                    list.adapter = adapterHome
 //                   information.sortByDescending { it.ho }
                 }
             }

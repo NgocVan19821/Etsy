@@ -30,7 +30,8 @@ class Application: Application() {
         var codePassword = "codePassword"
         var dbPhone = "databasePhone"
 //        URL api
-        const val baseURL = "https://fakestoreapi.com/"
+        const val baseURL = "https://api.vietqr.io/v2/"
+
 
     }
 }

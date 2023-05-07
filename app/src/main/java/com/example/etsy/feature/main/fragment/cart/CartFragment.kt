@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.recyclerview.widget.RecyclerView
 import com.example.etsy.R
 import com.example.etsy.feature.checkout.CheckoutActivity
 import com.example.etsy.feature.main.fragment.cart.adapter.CartAdapter
@@ -24,12 +25,10 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.item_cart.*
 
 
-class CartFragment : Fragment(), CartAdapter.CartAdapterListener {
+class CartFragment : Fragment() {
     private lateinit var databaseCart: DatabaseReference
-    private var productCart: ArrayList<Cart> = arrayListOf()
-
-
-
+    private val adapterCart by lazy { CartAdapter(requireContext(), Application.cartList) }
+    private val list by lazy { list_cart }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,11 +50,17 @@ class CartFragment : Fragment(), CartAdapter.CartAdapterListener {
         setUpdatabase()
 
     }
+
     private fun setUpdatabase() {
         databaseCart = FirebaseDatabase.getInstance().getReference("Cart/${Application.dbPhone}")
         fetchData()
         eventListener()
 
+    }
+
+    override fun onStop() {
+        super.onStop()
+        activity?.supportFragmentManager?.beginTransaction()?.remove(CartFragment())?.commitAllowingStateLoss()
     }
     private fun fetchData() { //lay data
         databaseCart.addValueEventListener(object : ValueEventListener {
@@ -68,7 +73,7 @@ class CartFragment : Fragment(), CartAdapter.CartAdapterListener {
                         val item = productSnapshot.getValue(Cart::class.java)
                         Application.cartList.add(item!!)
                     }
-                    list_cart.adapter = CartAdapter(requireContext(), Application.cartList)
+                    list.adapter = adapterCart
 //                   information.sortByDescending { it.ho }
                 }
             }
@@ -79,12 +84,6 @@ class CartFragment : Fragment(), CartAdapter.CartAdapterListener {
     }
 
     private fun changeText(){
-    }
-
-    fun checkIfFragmentAttached(operation: Context.() -> Unit) {
-        if (isAdded && context != null) {
-            operation(requireContext())
-        }
     }
 
     private fun eventListener(){
@@ -102,9 +101,5 @@ class CartFragment : Fragment(), CartAdapter.CartAdapterListener {
     private fun checkCart(){
 
     }
-
-    override fun deleteItem(id: String) {
-    }
-
 
 }

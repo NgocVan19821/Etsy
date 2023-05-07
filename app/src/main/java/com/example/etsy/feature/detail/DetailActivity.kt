@@ -1,5 +1,6 @@
 package com.example.etsy.feature.detail
 
+import android.content.Intent
 import android.content.res.ColorStateList
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +9,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.etsy.R
+import com.example.etsy.feature.checkout.CheckoutActivity
 import com.example.etsy.feature.detail.bottomsheet.ColorFragment
 import com.example.etsy.feature.detail.bottomsheet.SizeFragment
 import com.example.etsy.model.Cart
@@ -95,6 +97,7 @@ class DetailActivity : AppCompatActivity() {
         buttonPickSize.setOnClickListener {
             SizeFragment().show(supportFragmentManager, "sizePicker")
         }
+
     }
 
     private fun checkData() {
@@ -169,7 +172,7 @@ class DetailActivity : AppCompatActivity() {
 
         databaseCart.child(formatter.format(time)).setValue(cartProduct)
             .addOnSuccessListener {
-               Toast.makeText(this@DetailActivity, "e e e e", Toast.LENGTH_SHORT).show()
+               Toast.makeText(this@DetailActivity, " You have added to cart. ", Toast.LENGTH_SHORT).show()
                 finish()
             }
     }
@@ -196,6 +199,38 @@ class DetailActivity : AppCompatActivity() {
 //            Application.cartList.add(cart)
             addProductCart()
         }
+        button_buy.setOnClickListener {
+            val time = Calendar.getInstance().time
+            val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm::ss")
+            val description = description.text.toString()
+            val title = titleP.text.toString()
+            val quantity = quantity.text.toString().toInt()
+            val size = sizeText.text.toString()
+            val price = price.text.toString().toDouble()
+
+            val itemBuyNow = Cart(
+                intent.getIntExtra("id", 0),
+                urlImg,
+                description,
+                price,
+                title,
+                quantity,
+                size,
+                colorGet,
+                formatter.format(time)
+            )
+            Application.cartList.clear()
+            Application.cartList.add(itemBuyNow)
+
+
+
+
+
+            val intent = Intent(this, CheckoutActivity::class.java)
+            intent.putExtra("isBuyNow", 0)
+            startActivity(intent)
+        }
+
     }
 
 

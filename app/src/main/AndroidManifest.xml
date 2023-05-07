@@ -16,6 +16,22 @@
         android:theme="@style/defautScreen"
         tools:targetApi="31">
         <activity
+            android:name=".feature.search.SearchActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".feature.ListActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".feature.caculator.CalculatorActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".feature.addmoney.AddMoneyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feature.edit.EditAccountActivity"
+            android:exported="false" />
+        <activity
             android:name=".feature.splash.SplashActivity"
             android:exported="true">
             <intent-filter>
@@ -23,14 +39,14 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
 
+        </activity>
         <activity
             android:name=".feature.register.RegisterActivity"
             android:exported="true" />
         <activity
             android:name=".feature.login.LoginActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".feature.ExampleActivity"
             android:exported="true" />

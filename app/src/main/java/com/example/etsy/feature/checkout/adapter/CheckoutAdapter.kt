@@ -8,13 +8,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.etsy.R
+import com.example.etsy.model.Cart
 import com.example.etsy.ultities.Application
 import kotlinx.android.synthetic.main.item_will_pay.view.*
 
-class CheckoutAdapter(
-    val context: Context
+class   CheckoutAdapter(
+    val context: Context,
+    val listCart: ArrayList<Cart>
 
-    ) : RecyclerView.Adapter<CheckoutAdapter.MyViewHolder>() {
+    ):RecyclerView.Adapter<CheckoutAdapter.MyViewHolder>() {
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -25,7 +27,7 @@ class CheckoutAdapter(
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val item = Application.cartList[position]
+        val item = listCart[position]
 //        holder.itemView.imgItem.setImageResource(item.img)
         Glide.with(context)
             .load(item.img)
@@ -39,7 +41,7 @@ class CheckoutAdapter(
     }
 
     override fun getItemCount(): Int {
-        return Application.cartList.size
+        return listCart.size
     }
 
 }

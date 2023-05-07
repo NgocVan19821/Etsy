@@ -23,10 +23,7 @@ class MainActivity : AppCompatActivity(
         setContentView(R.layout.activity_main)
         menu_bottom_nav.setOnItemSelectedListener {
             when(it.itemId){
-                R.id.home -> {
-                    replaceFragment(HomeFragment())
-
-                }
+                R.id.home -> replaceFragment(HomeFragment())
                 R.id.notifications -> replaceFragment(NotificationsFragment())
                 R.id.person -> replaceFragment(PersonFragment())
                 R.id.cart -> replaceFragment(CartFragment())
